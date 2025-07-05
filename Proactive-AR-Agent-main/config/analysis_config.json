@@ -1,0 +1,99 @@
+{
+  "task_types": {
+    "scene_analysis": {
+      "description": "通用场景分析",
+      "system_prompt": "你是智能环境分析助手，能够分析场景并给出合理建议。",
+      "confidence_threshold": 0.6,
+      "output_format": "text"
+    },
+    "cooking_assistant": {
+      "description": "烹饪助手模式",
+      "system_prompt": "你是专业的烹饪助手，擅长分析厨房场景并给出烹饪建议。",
+      "confidence_threshold": 0.7,
+      "output_format": "text",
+      "special_features": ["recipe_suggestion", "cooking_steps", "ingredient_analysis"]
+    },
+    "activity_prediction": {
+      "description": "行为预测模式",
+      "system_prompt": "你是智能行为预测助手，能够根据环境物体推测用户活动。",
+      "confidence_threshold": 0.6,
+      "output_format": "text",
+      "special_features": ["activity_sequence", "next_action_prediction"]
+    },
+    "office_assistant": {
+      "description": "办公室助手模式",
+      "system_prompt": "你是办公室智能助手，能够分析工作环境并提供效率建议。",
+      "confidence_threshold": 0.6,
+      "output_format": "text",
+      "special_features": ["productivity_tips", "workflow_optimization"]
+    }
+  },
+  "scene_mapping": {
+    "kitchen": {
+      "keywords": ["oven", "microwave", "toaster", "sink", "refrigerator", "fork", "knife", "spoon", "bowl", "cup", "wine glass"],
+      "default_task": "cooking_assistant",
+      "priority_objects": ["oven", "microwave", "sink", "refrigerator"]
+    },
+    "living_room": {
+      "keywords": ["tv", "couch", "chair", "remote", "laptop"],
+      "default_task": "scene_analysis",
+      "priority_objects": ["tv", "couch", "chair"]
+    },
+    "bedroom": {
+      "keywords": ["bed", "chair", "tv", "laptop"],
+      "default_task": "activity_prediction",
+      "priority_objects": ["bed", "chair"]
+    },
+    "office": {
+      "keywords": ["laptop", "keyboard", "mouse", "chair", "desk"],
+      "default_task": "office_assistant",
+      "priority_objects": ["laptop", "keyboard", "mouse"]
+    },
+    "bathroom": {
+      "keywords": ["toilet", "sink", "toothbrush", "hair drier"],
+      "default_task": "scene_analysis",
+      "priority_objects": ["toilet", "sink"]
+    },
+    "outdoor": {
+      "keywords": ["car", "bicycle", "motorcycle", "bus", "train", "truck", "traffic light", "fire hydrant", "stop sign"],
+      "default_task": "scene_analysis",
+      "priority_objects": ["car", "bicycle", "traffic light"]
+    }
+  },
+  "output_formats": {
+    "structured_json": {
+      "description": "结构化JSON输出",
+      "template": {
+        "scene": "场景分类",
+        "objects": "检测到的物体列表",
+        "analysis": "场景分析结果",
+        "suggestions": "建议列表",
+        "confidence": "整体置信度"
+      }
+    },
+    "natural_language": {
+      "description": "自然语言输出",
+      "template": "基于检测到的{objects}，分析当前{scene}场景，{analysis}，建议{suggestions}"
+    },
+    "hybrid": {
+      "description": "混合输出（结构化+自然语言）",
+      "template": {
+        "structured_data": "结构化数据",
+        "natural_summary": "自然语言摘要"
+      }
+    }
+  },
+  "temporal_analysis": {
+    "enabled": true,
+    "max_history_frames": 10,
+    "change_detection_threshold": 0.3,
+    "significant_changes": ["object_appearance", "object_disappearance", "position_change"]
+  },
+  "llm_settings": {
+    "model": "deepseek-r1:1.5b",
+    "temperature": 0.7,
+    "max_tokens": 500,
+    "frequency_penalty": 0.1,
+    "presence_penalty": 0.1
+  }
+} 
