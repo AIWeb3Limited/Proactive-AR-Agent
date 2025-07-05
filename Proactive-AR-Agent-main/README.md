@@ -62,8 +62,9 @@ deep_sort_tracker = DeepSortTracker(model_path="yolov8n.pt")
 
 ### 主程序
 1. 确保 Ollama 本地部署并运行模型：`ollama run deepseek`
-2. 视频文件放在根目录，命名为 `test.mp4`
-3. 运行主程序：
+   ollama部署deepseek模型指南：https://zhuanlan.zhihu.com/p/20642808493
+3. 视频文件放在根目录，命名为 `test.mp4`
+4. 运行主程序：
 
 ```bash
 python main.py
