@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a78e96a51651f549b15cdf2b8068887, type: 3}
+  m_Name: APIConfig
+  m_EditorClassIdentifier: 
+  openAIApiKey: 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
+  openAIBaseUrl: https://openrouter.ai/api/v1
+  openAIModel: openai/gpt-4o-mini
+  deepSeekApiKey: 
+  deepSeekBaseUrl: https://api.deepseek.com/v1
+  deepSeekModel: deepseek-chat
+  azureApiKey: 
+  azureEndpoint: 
+  azureDeploymentName: 
